@@ -370,6 +370,160 @@ body{
 
       .bottom-panel{
         bottom:18px;
+
+.tape-archive{
+  width:min(1100px, 95vw);
+  margin-top:10px;
+}
+
+.tape-archive h2{
+  text-align:center;
+  font-size:clamp(1.6rem, 2.5vw, 2.2rem);
+  margin-bottom:8px;
+  letter-spacing:1px;
+}
+
+.archive-intro{
+  text-align:center;
+  color:#d7cfbf;
+  margin-bottom:24px;
+  font-size:1rem;
+}
+
+.tape-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:22px;
+}
+
+.mini-tape{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  color:var(--text);
+  background:linear-gradient(145deg, #2f2a24, #1b1713);
+  border:3px solid #0f0d0b;
+  border-radius:18px;
+  padding:18px 16px 16px;
+  min-height:190px;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.28),
+    inset 0 2px 0 rgba(255,255,255,.04),
+    inset 0 -8px 14px rgba(0,0,0,.35);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  overflow:hidden;
+}
+
+.mini-tape:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:
+    0 18px 34px rgba(0,0,0,.35),
+    inset 0 2px 0 rgba(255,255,255,.05),
+    inset 0 -8px 14px rgba(0,0,0,.35);
+  border-color:#3c3226;
+}
+
+.mini-tape::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:12px;
+  pointer-events:none;
+}
+
+.mini-label{
+  background:linear-gradient(to bottom, #deceb0, #c8b181);
+  border-radius:10px;
+  padding:14px 14px 12px;
+  color:#1e1a14;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.28);
+}
+
+.mini-title{
+  font-size:1rem;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  margin-bottom:6px;
+}
+
+.mini-subtitle{
+  font-size:.92rem;
+  color:#443b2e;
+  line-height:1.3;
+}
+
+.mini-window{
+  position:relative;
+  margin-top:16px;
+  height:64px;
+  border-radius:12px;
+  background:linear-gradient(180deg, #87979f, #5d6a72);
+  border:4px solid #191919;
+  overflow:hidden;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.35);
+}
+
+.mini-strip{
+  position:absolute;
+  left:12%;
+  right:12%;
+  top:50%;
+  height:8px;
+  transform:translateY(-50%);
+  border-radius:10px;
+  background:repeating-linear-gradient(
+    to right,
+    #3b2416 0px,
+    #6e4a30 6px,
+    #3b2416 12px
+  );
+  animation:tapeMove 6s linear infinite;
+}
+
+.mini-reel{
+  position:absolute;
+  top:50%;
+  width:38px;
+  height:38px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle, #202020 0 12%, transparent 12% 16%, #bbb 16% 22%, #444 22% 100%);
+  animation:miniSpin 5s linear infinite;
+}
+
+.mini-reel.left{ left:14%; }
+.mini-reel.right{ right:14%; }
+
+.mini-reel::before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border-radius:50%;
+  background:
+    conic-gradient(
+      from 0deg,
+      #bcbcbc 0 20deg,
+      transparent 20deg 70deg,
+      #bcbcbc 70deg 90deg,
+      transparent 90deg 140deg,
+      #bcbcbc 140deg 160deg,
+      transparent 160deg 210deg,
+      #bcbcbc 210deg 230deg,
+      transparent 230deg 280deg,
+      #bcbcbc 280deg 300deg,
+      transparent 300deg 360deg
+    );
+}
+
+@keyframes miniSpin{
+  from{ transform:translateY(-50%) rotate(0deg); }
+  to{ transform:translateY(-50%) rotate(360deg); }
+}
+
+        
       }
     }
   </style>
@@ -427,6 +581,88 @@ body{
       <a href="#">Projects</a>
       <a href="#">Contact</a>
     </nav>
+
+
+<section class="tape-archive">
+  <h2>Practice Tape Archive</h2>
+  <p class="archive-intro">A growing collection of home recordings, practice sets, and rough takes.</p>
+
+  <div class="tape-grid">
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 001</div>
+        <div class="mini-subtitle">3/15/26 Practice Set</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 002</div>
+        <div class="mini-subtitle">Late Night Set</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 003</div>
+        <div class="mini-subtitle">Bob Dylan Practice</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 004</div>
+        <div class="mini-subtitle">Sunday Session</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 005</div>
+        <div class="mini-subtitle">Rough Ideas</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+
+    <a class="mini-tape" href="#">
+      <div class="mini-label">
+        <div class="mini-title">Tape 006</div>
+        <div class="mini-subtitle">Acoustic Runthrough</div>
+      </div>
+      <div class="mini-window">
+        <div class="mini-reel left"></div>
+        <div class="mini-strip"></div>
+        <div class="mini-reel right"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+    
   </main>
 
   <div class="footer-note">
