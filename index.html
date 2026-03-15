@@ -187,20 +187,9 @@ body{
   top:50%;
   height:10px;
   transform:translateY(-50%);
-  background:repeating-linear-gradient(
-    to right,
-    #3b2416 0px,
-    #6e4a30 6px,
-    #3b2416 12px
-  );
+  background:linear-gradient(to right, #3b2416, #6e4a30, #3b2416);
   border-radius:10px;
   opacity:.95;
-  animation:tapeMove 6s linear infinite;
-}
-
-    @keyframes tapeMove{
-  from{ background-position:0 0; }
-  to{ background-position:120px 0; }
 }
 
     .reel{
