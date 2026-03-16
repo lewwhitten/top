@@ -482,6 +482,31 @@ body{
   animation:tapeMove 6s linear infinite;
 }
 
+
+        .tape-archive{
+  width:min(1100px, 95vw);
+  margin-top:10px;
+  position:relative;
+  padding-bottom:40px;
+}
+
+.tape-archive::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:18px;
+  border-radius:8px;
+  background:linear-gradient(to bottom, #7a5a38, #5a4027 45%, #3d2a19 100%);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.25),
+    inset 0 2px 0 rgba(255,255,255,.08),
+    inset 0 -3px 6px rgba(0,0,0,.25);
+}
+
+
+        
 .mini-reel{
   position:absolute;
   top:50%;
