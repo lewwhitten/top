@@ -392,15 +392,8 @@ body{
 
 .tape-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
   gap:22px;
-}
-
-        .tape-img {
-  width: 20%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
 }
 
 .mini-tape{
@@ -489,31 +482,6 @@ body{
   animation:tapeMove 6s linear infinite;
 }
 
-
-        .tape-archive{
-  width:min(1100px, 95vw);
-  margin-top:10px;
-  position:relative;
-  padding-bottom:40px;
-}
-
-.tape-archive::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:18px;
-  border-radius:8px;
-  background:linear-gradient(to bottom, #7a5a38, #5a4027 45%, #3d2a19 100%);
-  box-shadow:
-    0 8px 18px rgba(0,0,0,.25),
-    inset 0 2px 0 rgba(255,255,255,.08),
-    inset 0 -3px 6px rgba(0,0,0,.25);
-}
-
-
-        
 .mini-reel{
   position:absolute;
   top:50%;
@@ -621,7 +589,7 @@ body{
 
   <div class="tape-grid">
     <a class="mini-tape" href="#">
-      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+      <img src="images/cassetteThumb.png">
       <div class="mini-label">
         <div class="mini-title">Tape 001</div>
         <div class="mini-subtitle">3/15/26 Practice Set</div>
@@ -634,7 +602,6 @@ body{
     </a>
 
     <a class="mini-tape" href="#">
-       <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
       <div class="mini-label">
         <div class="mini-title">Tape 002</div>
         <div class="mini-subtitle">Late Night Set</div>
@@ -647,7 +614,6 @@ body{
     </a>
 
     <a class="mini-tape" href="#">
-       <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
       <div class="mini-label">
         <div class="mini-title">Tape 003</div>
         <div class="mini-subtitle">Bob Dylan Practice</div>
@@ -660,7 +626,6 @@ body{
     </a>
 
     <a class="mini-tape" href="#">
-       <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
       <div class="mini-label">
         <div class="mini-title">Tape 004</div>
         <div class="mini-subtitle">Sunday Session</div>
@@ -673,7 +638,6 @@ body{
     </a>
 
     <a class="mini-tape" href="#">
-       <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
       <div class="mini-label">
         <div class="mini-title">Tape 005</div>
         <div class="mini-subtitle">Rough Ideas</div>
@@ -686,7 +650,6 @@ body{
     </a>
 
     <a class="mini-tape" href="#">
-       <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
       <div class="mini-label">
         <div class="mini-title">Tape 006</div>
         <div class="mini-subtitle">Acoustic Runthrough</div>
