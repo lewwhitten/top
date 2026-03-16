@@ -390,17 +390,20 @@ body{
   font-size:1rem;
 }
 
-.tape-img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.tape-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.tape-link {
   display: block;
 }
 
-.tape-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:22px;
+.tape-img {
+  width: 100%; /* Image will fill the link container width */
+  height: auto;  /* Maintain aspect ratio */
+  border-radius: 8px;
 }
 
 .mini-tape{
@@ -594,84 +597,25 @@ body{
   <h2>Practice Tape Archive</h2>
   <p class="archive-intro">A growing collection of home recordings, practice sets, and rough takes.</p>
 
- <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-
-    <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-
-    <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-
-   <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-
-   <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-
- <a class="mini-tape" href="#">
-  <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
-  <div class="mini-label">
-    <div class="mini-title">Tape 002</div>
-    <div class="mini-subtitle">Late Night Set</div>
-  </div>
-  <div class="mini-window">
-    <div class="mini-reel left"></div>
-    <div class="mini-strip"></div>
-    <div class="mini-reel right"></div>
-  </div>
-</a>
-  
+  <div class="tape-grid">
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
+    <a class="tape-link" href="#">
+      <img src="images/cassetteThumb.png" class="tape-img" alt="Cassette">
+    </a>
   </div>
 </section>
 
