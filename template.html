@@ -4,97 +4,205 @@
   <meta charset="UTF-8">
   <title>Page Template</title>
 
-  <!-- =============================
-       BASIC STYLING (SIMPLE LAYOUT)
-       ============================= -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* =============================
+       COLOR VARIABLES (MATCH INDEX)
+       ============================= */
+    :root {
+      --bg-top: #5a4a33;
+      --bg-mid: #3f3323;
+      --bg-bottom: #241c13;
+
+      --panel: #1d1d1d;
+      --panel2: #2b2b2b;
+
+      --text: #f3f0e8;
+      --text-muted: #cfc8b8;
+
+      --border: rgba(255,255,255,.08);
+      --shadow: rgba(0,0,0,.4);
+    }
+
+    /* =============================
+       GLOBAL RESET
+       ============================= */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
     }
 
+    /* =============================
+       BODY (MATCHES INDEX BACKGROUND)
+       ============================= */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* =============================
+       NAV LINK STYLE (MATCH INDEX)
+       ============================= */
     nav a {
-      margin: 0 10px;
       text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(145deg, #303030, #1a1a1a);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 999px;
       font-weight: bold;
+      letter-spacing: .5px;
+      margin: 6px;
+      display: inline-block;
+      transition: .2s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
     }
 
-    /* MAIN 2-COLUMN LAYOUT */
+    nav a:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(145deg, #444, #222);
+    }
+
+    /* =============================
+       CENTERED CONTENT WRAPPER
+       SAME WIDTH FEEL AS INDEX
+       ============================= */
+    .page-wrap {
+      width: min(1100px, 95%);
+      margin: 20px auto 50px;
+    }
+
+    /* =============================
+       TWO COLUMN LAYOUT (70 / 30)
+       ============================= */
     .layout {
       display: grid;
       grid-template-columns: 70% 30%;
-      gap: 20px;
-      padding: 20px;
+      gap: 24px;
+      align-items: start;
     }
 
-    /* LEFT MAIN CONTENT AREA */
+    /* =============================
+       MAIN CONTENT PANEL (LEFT)
+       ============================= */
     .main-content {
-      padding: 10px;
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.04);
+      line-height: 1.6;
     }
 
-    /* RIGHT SIDEBAR AREA */
+    /* =============================
+       SIDEBAR PANEL (RIGHT)
+       ============================= */
     .sidebar {
-      padding: 10px;
-      background: #f5f5f5;
+      background: linear-gradient(145deg, var(--panel), #141414);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.03);
     }
+
+    /* =============================
+       FOOTER STYLE
+       ============================= */
+    .footer-note {
+      text-align: center;
+      color: #a9a292;
+      font-size: .95rem;
+      padding: 30px 20px;
+    }
+
+    /* =============================
+       MOBILE ADJUSTMENT
+       STACK COLUMNS
+       ============================= */
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- =============================
-       HEADER (AUTO LOADED)
+       HEADER (AUTO LOADS)
        ============================= -->
-  <div data-include="partials/header.html"></div>
+  <div data-include="/partials/header.html"></div>
 
   <!-- =============================
-       NAVIGATION (AUTO LOADED)
+       NAVIGATION (AUTO LOADS)
        ============================= -->
-  <div data-include="partials/nav.html"></div>
+  <div data-include="/partials/nav.html"></div>
 
   <!-- =============================
-       MAIN PAGE LAYOUT
+       CENTERED PAGE CONTENT
        ============================= -->
-  <div class="layout">
+  <main class="page-wrap">
 
-    <!-- =============================
-         LEFT SIDE (YOUR PAGE CONTENT)
-         THIS IS THE ONLY PART YOU CHANGE
-         ============================= -->
-    <div class="main-content">
+    <div class="layout">
 
-      <!-- ✏️ EDIT BELOW THIS LINE -->
+      <!-- =============================
+           LEFT SIDE (MAIN CONTENT)
+           ✏️ THIS IS WHAT YOU EDIT PER PAGE
+           ============================= -->
+      <div class="main-content">
 
-      <h2>This is where the main theme goes.</h2>
+        <!-- ✏️ START EDITING HERE -->
 
-      <p>
-        Replace this with:
-        - audio player
-        - blog post
-        - images
-        - video
-        - anything you want
-      </p>
+        <h2>This is where the main theme goes.</h2>
 
-      <!-- ✏️ EDIT ABOVE THIS LINE -->
+        <p>
+          Replace this with anything:
+          audio players, blog posts, images, videos,
+          or whatever you want this page to be.
+        </p>
+
+        <!-- EXAMPLES YOU CAN ADD:
+
+        <img src="/images/photo.jpg" style="width:100%; border-radius:10px;">
+
+        <audio controls>
+          <source src="/audio/song.mp3" type="audio/mpeg">
+        </audio>
+
+        -->
+
+        <!-- ✏️ STOP EDITING HERE -->
+
+      </div>
+
+      <!-- =============================
+           RIGHT SIDE (SIDEBAR)
+           AUTO LOADS FROM ONE FILE
+           ============================= -->
+      <aside class="sidebar">
+        <div data-include="/partials/sidebar.html"></div>
+      </aside>
 
     </div>
 
-    <!-- =============================
-         RIGHT SIDE (SIDEBAR - SHARED)
-         ============================= -->
-    <div class="sidebar">
-      <div data-include="partials/sidebar.html"></div>
-    </div>
-
-  </div>
+  </main>
 
   <!-- =============================
-       FOOTER (AUTO LOADED)
+       FOOTER (AUTO LOADS)
        ============================= -->
-  <div data-include="partials/footer.html"></div>
+  <div data-include="/partials/footer.html"></div>
 
-  <!-- LOAD THE INCLUDE SCRIPT -->
-  <script src="js/includes.js"></script>
+  <!-- LOAD JAVASCRIPT INCLUDES -->
+  <script src="/js/includes.js"></script>
 
 </body>
 </html>
