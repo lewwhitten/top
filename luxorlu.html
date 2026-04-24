@@ -179,6 +179,22 @@
 <p><strong>🧩 Meta-Conspiracy Topics</strong><br /> 142. Why people believe conspiracies <br /> 143. Disinformation vs Truth <br /> 144. How narratives spread <br /> 145. Trust in institutions <br /> 146. Personal awakening stories <br /> 147. Skepticism vs Cynicism <br /> 148. The role of doubt <br /> 149. Finding balance in belief <br /> 150. What is truth in the modern world</p>
   </blockquote>
 
+<div style="text-align:center; margin:40px 0;">
+  <button onclick="pickNumber()" style="
+    padding:14px 20px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:10px;
+    border:none;
+    background:#d14d3f;
+    color:white;
+    cursor:pointer;">
+    🎲 Pick a Topic Number
+  </button>
+
+  <div id="numberResult" style="margin-top:20px; font-size:24px; font-weight:bold;"></div>
+</div>
+        
         <!-- EXAMPLES YOU CAN ADD:
 
         <img src="/images/photo.jpg" style="width:100%; border-radius:10px;">
@@ -212,6 +228,19 @@
 
   <!-- LOAD JAVASCRIPT INCLUDES -->
   <script src="/js/includes.js"></script>
+<script>
+  function pickNumber() {
 
+    // 🔧 CHANGE RANGE HERE
+    // Example: 1–150 → min = 1, max = 150
+    const min = 1;
+    const max = 150;
+
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    document.getElementById("numberResult").innerHTML =
+      `🎙️ Topic #${randomNumber}`;
+  }
+</script>
 </body>
 </html>
