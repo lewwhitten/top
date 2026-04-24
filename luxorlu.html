@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Template</title>
+
+  <style>
+    /* =============================
+       COLOR VARIABLES (MATCH INDEX)
+       ============================= */
+    :root {
+      --bg-top: #5a4a33;
+      --bg-mid: #3f3323;
+      --bg-bottom: #241c13;
+
+      --panel: #1d1d1d;
+      --panel2: #2b2b2b;
+
+      --text: #f3f0e8;
+      --text-muted: #cfc8b8;
+
+      --border: rgba(255,255,255,.08);
+      --shadow: rgba(0,0,0,.4);
+    }
+
+    /* =============================
+       GLOBAL RESET
+       ============================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =============================
+       BODY (MATCHES INDEX BACKGROUND)
+       ============================= */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* =============================
+       NAV LINK STYLE (MATCH INDEX)
+       ============================= */
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(145deg, #303030, #1a1a1a);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      margin: 6px;
+      display: inline-block;
+      transition: .2s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(145deg, #444, #222);
+    }
+
+    /* =============================
+       CENTERED CONTENT WRAPPER
+       SAME WIDTH FEEL AS INDEX
+       ============================= */
+    .page-wrap {
+      width: min(1100px, 95%);
+      margin: 20px auto 50px;
+    }
+
+    /* =============================
+       TWO COLUMN LAYOUT (70 / 30)
+       ============================= */
+    .layout {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* =============================
+       MAIN CONTENT PANEL (LEFT)
+       ============================= */
+    .main-content {
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.04);
+      line-height: 1.6;
+    }
+
+    /* =============================
+       SIDEBAR PANEL (RIGHT)
+       ============================= */
+    .sidebar {
+      background: linear-gradient(145deg, var(--panel), #141414);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.03);
+    }
+
+    /* =============================
+       FOOTER STYLE
+       ============================= */
+    .footer-note {
+      text-align: center;
+      color: #a9a292;
+      font-size: .95rem;
+      padding: 30px 20px;
+    }
+
+    /* =============================
+       MOBILE ADJUSTMENT
+       STACK COLUMNS
+       ============================= */
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================
+       HEADER (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/header.html"></div>
+
+  <!-- =============================
+       NAVIGATION (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/nav.html"></div>
+
+  <!-- =============================
+       CENTERED PAGE CONTENT
+       ============================= -->
+  <main class="page-wrap">
+
+    <div class="layout">
+
+      <!-- =============================
+           LEFT SIDE (MAIN CONTENT)
+           ✏️ THIS IS WHAT YOU EDIT PER PAGE
+           ============================= -->
+      <div class="main-content">
+
+        <!-- ✏️ START EDITING HERE -->
+
+        <h2>This is where the main theme goes.</h2>
+
+        <p>
+          Replace this with anything:
+          audio players, blog posts, images, videos,
+          or whatever you want this page to be.
+        </p>
+
+        <!-- EXAMPLES YOU CAN ADD:
+
+        <img src="/images/photo.jpg" style="width:100%; border-radius:10px;">
+
+        <audio controls>
+          <source src="/audio/song.mp3" type="audio/mpeg">
+        </audio>
+
+        -->
+
+        <!-- ✏️ STOP EDITING HERE -->
+
+      </div>
+
+      <!-- =============================
+           RIGHT SIDE (SIDEBAR)
+           AUTO LOADS FROM ONE FILE
+           ============================= -->
+      <aside class="sidebar">
+        <div data-include="/partials/sidebar.html"></div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- =============================
+       FOOTER (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/footer.html"></div>
+
+  <!-- LOAD JAVASCRIPT INCLUDES -->
+  <script src="/js/includes.js"></script>
+
+</body>
+</html>
