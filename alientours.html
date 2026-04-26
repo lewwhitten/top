@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Template</title>
+
+  <style>
+    /* =============================
+       COLOR VARIABLES (MATCH INDEX)
+       ============================= */
+    :root {
+      --bg-top: #5a4a33;
+      --bg-mid: #3f3323;
+      --bg-bottom: #241c13;
+
+      --panel: #1d1d1d;
+      --panel2: #2b2b2b;
+
+      --text: #f3f0e8;
+      --text-muted: #cfc8b8;
+
+      --border: rgba(255,255,255,.08);
+      --shadow: rgba(0,0,0,.4);
+    }
+
+    /* =============================
+       GLOBAL RESET
+       ============================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =============================
+       BODY (MATCHES INDEX BACKGROUND)
+       ============================= */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* =============================
+       NAV LINK STYLE (MATCH INDEX)
+       ============================= */
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(145deg, #303030, #1a1a1a);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      margin: 6px;
+      display: inline-block;
+      transition: .2s ease;
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(145deg, #444, #222);
+    }
+
+    /* =============================
+       CENTERED CONTENT WRAPPER
+       SAME WIDTH FEEL AS INDEX
+       ============================= */
+    .page-wrap {
+      width: min(1100px, 95%);
+      margin: 20px auto 50px;
+    }
+
+    /* =============================
+       TWO COLUMN LAYOUT (70 / 30)
+       ============================= */
+    .layout {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* =============================
+       MAIN CONTENT PANEL (LEFT)
+       ============================= */
+    .main-content {
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.04);
+      line-height: 1.6;
+    }
+
+    /* =============================
+       SIDEBAR PANEL (RIGHT)
+       ============================= */
+    .sidebar {
+      background: linear-gradient(145deg, var(--panel), #141414);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow:
+        0 15px 30px var(--shadow),
+        inset 0 2px 0 rgba(255,255,255,.03);
+    }
+
+    /* =============================
+       FOOTER STYLE
+       ============================= */
+    .footer-note {
+      text-align: center;
+      color: #a9a292;
+      font-size: .95rem;
+      padding: 30px 20px;
+    }
+
+    /* =============================
+       MOBILE ADJUSTMENT
+       STACK COLUMNS
+       ============================= */
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================
+       HEADER (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/header.html"></div>
+
+  <!-- =============================
+       NAVIGATION (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/nav.html"></div>
+
+  <!-- =============================
+       CENTERED PAGE CONTENT
+       ============================= -->
+  <main class="page-wrap">
+
+    <div class="layout">
+
+      <!-- =============================
+           LEFT SIDE (MAIN CONTENT)
+           ✏️ THIS IS WHAT YOU EDIT PER PAGE
+           ============================= -->
+      <div class="main-content">
+
+        <!-- ✏️ START EDITING HERE -->
+
+      <div style="max-width:900px; margin:auto; font-family:Arial, sans-serif; line-height:1.6;">
+
+<h1 style="text-align:center;">Alien Tours – Tikaboo Peak Experience</h1>
+
+<p style="text-align:center;"><strong>Guided by Lewis Whitten</strong></p>
+
+<hr style="margin:20px 0;">
+
+<p>
+Welcome to Alien Tours. I offer guided hikes to Tikaboo Peak — the only public vantage point where you can see Area 51 with your own eyes. I’ve made this trek multiple times, led small groups to the summit, and now know the trail well enough to complete it without relying on GPS.
+</p>
+
+<p>
+This is not just a hike — it’s an experience. A journey through remote Nevada desert, up an 8,000-foot peak, with a view that very few people ever get to witness.
+</p>
+
+<hr style="margin:20px 0;">
+
+<h2>The Journey</h2>
+
+<p>
+The adventure begins with a one-hour drive from Alamo, Nevada along rugged dirt roads through wide-open desert. Along the way you’ll see mountains, valleys, wildlife, and some of the most untouched landscape in the state.
+</p>
+
+<!-- IMAGE PLACEHOLDER -->
+<p style="text-align:center;">
+  <img src="images/alientours/at01start.jpg" style="width:100%; max-width:600px;">
+</p>
+
+<p>
+The hike starts on a wide red shale path — a steady, manageable climb that serves as a warm-up. But that comfort doesn’t last long.
+</p>
+
+<p>
+Soon the trail narrows into a steep, rocky ascent through trees. This section is the most challenging — loose gravel, sharp incline, and very easy to lose the trail if you’re not careful. Taking breaks and pacing yourself is key.
+</p>
+
+<!-- IMAGE PLACEHOLDER -->
+<p style="text-align:center;">
+  <img src="images/alientours/at03steep.jpg" style="width:100%; max-width:600px;">
+</p>
+
+<p>
+After pushing through the hardest section, the trail opens into a breathtaking plateau. A wide valley stretches out below, and the final destination — the Tikaboo Peak weather station — comes into view.
+</p>
+
+<p>
+From there, the final ascent begins. It’s steep, but manageable, and the reward at the top is unforgettable.
+</p>
+
+<hr style="margin:20px 0;">
+
+<h2>The Summit</h2>
+
+<p>
+At the peak, you are standing at one of the most unique viewpoints in the United States. On a clear day, Area 51 is visible to the naked eye. You’ll also see Groom Lake Road, the Extraterrestrial Highway, and surrounding mountain ranges stretching in every direction.
+</p>
+
+<p>
+There’s a real sense of accomplishment here — and something else… a feeling that you’re seeing something you’re not supposed to see.
+</p>
+
+<!-- IMAGE PLACEHOLDER -->
+<p style="text-align:center;">
+  <img src="images/alientours/at05peak.jpg" style="width:100%; max-width:600px;">
+</p>
+
+<hr style="margin:20px 0;">
+
+<h2>The Experience</h2>
+
+<p>
+The full trip typically takes around 5 to 6 hours:
+</p>
+
+<ul>
+  <li>~1 hour drive to trailhead</li>
+  <li>1.5–2 hours hike up</li>
+  <li>Time at the summit</li>
+  <li>~1 hour hike down</li>
+</ul>
+
+<p>
+This is a physically demanding hike, especially the middle section. But with the right pacing, rest breaks, and guidance, it is absolutely achievable.
+</p>
+
+<p>
+I recommend bringing:
+</p>
+
+<ul>
+  <li>Plenty of water</li>
+  <li>Hiking sticks (highly recommended)</li>
+  <li>Good shoes with grip</li>
+  <li>Snacks and sun protection</li>
+</ul>
+
+<hr style="margin:20px 0;">
+
+<h2>Why Go With a Guide?</h2>
+
+<p>
+This trail is easy to lose — especially on the way down. I’ve experienced that firsthand. After multiple hikes, I now know the key landmarks, turns, and strategies to stay on track.
+</p>
+
+<p>
+I’ve successfully guided groups to the top, and I know how to pace the hike so it’s safe, enjoyable, and rewarding.
+</p>
+
+<p>
+No guesswork. No wandering. Just a clear path to one of the most fascinating views in Nevada.
+</p>
+
+<hr style="margin:20px 0;">
+
+<h2>Final Thoughts</h2>
+
+<p>
+Some people come for the hike.  
+Some come for the view.  
+Some come for what might be happening beyond that ridge.
+</p>
+
+<p>
+Whatever your reason — Alien Tours is your chance to experience it for yourself.
+</p>
+
+<p style="text-align:center; margin-top:30px;">
+  <strong>Ready to make the climb?</strong><br>
+  Contact me to join a future tour.
+</p>
+
+</div>
+
+        <!-- EXAMPLES YOU CAN ADD:
+
+        <img src="/images/photo.jpg" style="width:100%; border-radius:10px;">
+
+        <audio controls>
+          <source src="/audio/song.mp3" type="audio/mpeg">
+        </audio>
+
+        -->
+
+        <!-- ✏️ STOP EDITING HERE -->
+
+      </div>
+
+      <!-- =============================
+           RIGHT SIDE (SIDEBAR)
+           AUTO LOADS FROM ONE FILE
+           ============================= -->
+      <aside class="sidebar">
+        <div data-include="/partials/sidebar.html"></div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- =============================
+       FOOTER (AUTO LOADS)
+       ============================= -->
+  <div data-include="/partials/footer.html"></div>
+
+  <!-- LOAD JAVASCRIPT INCLUDES -->
+  <script src="/js/includes.js"></script>
+
+</body>
+</html>
