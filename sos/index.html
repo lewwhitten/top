@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Save Owl Save</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1b12;
+      color: #fff;
+      text-align: center;
+    }
+
+    .page {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .promo {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .rules {
+      margin-top: 18px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 16px;
+      border-radius: 14px;
+      line-height: 1.45;
+      font-size: 1rem;
+    }
+
+    .rules h2 {
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 16px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 14px;
+      background: #f4b000;
+      color: #1a1200;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <img src="startpagepromo.png" alt="Save Owl Save game intro art" class="promo" />
+
+    <section class="rules">
+      <h2>How to Play</h2>
+
+      <p>
+        Each player has five hidden action cards.
+      </p>
+
+      <p>
+        On your turn, privately view your cards. Choose one card to play,
+        show it to the other player, then use the card.
+      </p>
+
+      <p>
+        Instead of playing a card, you may trade in cards for new ones.
+        Trading ends your turn.
+      </p>
+
+      <p>
+        Pass the phone after each turn.
+      </p>
+    </section>
+
+    <button onclick="startGame()">Start Game</button>
+  </main>
+
+  <script>
+    function startGame() {
+      alert("Next screen: Player 1, view your cards.");
+      // Later this will move to the Player 1 card screen.
+    }
+  </script>
+</body>
+</html>
