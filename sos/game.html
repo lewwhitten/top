@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Save Owl Save</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    text-align: center;
+  }
+
+  .screen {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 14px;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 18px;
+  }
+
+  .card {
+    width: min(92vw, 360px);
+  }
+
+  .turn-img {
+    width: min(92vw, 360px);
+    margin-top: 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 14px;
+    background: #f4b000;
+    color: #191000;
+  }
+
+  .secondary {
+    background: #ddd;
+    color: #111;
+  }
+
+  .danger {
+    background: #7b3fb3;
+    color: white;
+  }
+
+  .nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  .nav button {
+    flex: 1;
+  }
+
+  .small {
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  input[type="checkbox"] {
+    transform: scale(1.3);
+    margin-right: 8px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="screen" id="app"></div>
+
+<script>
+const playerCards = {
+  1: [
+    "P1fire1.png",
+    "P1fire2.png",
+    "P1fire3.png",
+    "P1line1.png",
+    "P1line2.png",
+    "P1line3.png",
+    "P1water1.png",
+    "P1water2.png",
+    "P1windE.png",
+    "P1windN.png",
+    "P1windS.png",
+    "P1windW.png"
+  ],
+  2: [
+    "P2fire1.png",
+    "P2fire2.png",
+    "P2fire3.png",
+    "P2line1.png",
+    "P2line2.png",
+    "P2line3.png",
+    "P2water1.png",
+    "P2water2.png",
+    "P2windE.png",
+    "P2windN.png",
+    "P2windS.png",
+    "P2windW.png"
+  ]
+};
+
+const startImages = {
+  1: "P1start.png",
+  2: "P2start.png"
+};
+
+let currentPlayer = 1;
+let hands = {
+  1: [],
+  2: []
+};
+let cardIndex = 0;
+let tradeMarked = [false, false, false, false, false];
+
+function randomCard(player) {
+  const cards = playerCards[player];
+  return cards[Math.floor(Math.random() * cards.length)];
+}
+
+function createHand(player) {
+  return [
+    randomCard(player),
+    randomCard(player),
+    randomCard(player),
+    randomCard(player),
+    randomCard(player)
+  ];
+}
+
+hands[1] = createHand(1);
+hands[2] = createHand(2);
+
+function showStartScreen() {
+  cardIndex = 0;
+  tradeMarked = [false, false, false, false, false];
+
+  document.getElementById("app").innerHTML = `
+    <img class="turn-img" src="${startImages[currentPlayer]}" alt="Player ${currentPlayer} start screen">
+    <button onclick="viewCards()">View Cards</button>
+  `;
+}
+
+function viewCards() {
+  showCard();
+}
+
+function showCard() {
+  const card = hands[currentPlayer][cardIndex];
+
+  document.getElementById("app").innerHTML = `
+    <p class="small">Player ${currentPlayer} — Card ${cardIndex + 1} of 5</p>
+
+    <img class="card" src="${card}" alt="Player ${currentPlayer} card">
+
+    <div class="nav">
+      <button class="secondary" onclick="previousCard()">← Previous</button>
+      <button class="secondary" onclick="nextCard()">Next →</button>
+    </div>
+
+    <button onclick="confirmPlay()">Play This Card</button>
+
+    <label>
+      <input type="checkbox" ${tradeMarked[cardIndex] ? "checked" : ""}
+        onchange="toggleTrade(this.checked)">
+      Mark this card for trade
+    </label>
+
+    <button class="danger" onclick="showTradeScreen()">Go to Trade Screen</button>
+  `;
+}
+
+function previousCard() {
+  cardIndex = (cardIndex + 4) % 5;
+  showCard();
+}
+
+function nextCard() {
+  cardIndex = (cardIndex + 1) % 5;
+  showCard();
+}
+
+function toggleTrade(checked) {
+  tradeMarked[cardIndex] = checked;
+}
+
+function confirmPlay() {
+  const card = hands[currentPlayer][cardIndex];
+
+  document.getElementById("app").innerHTML = `
+    <p class="small">Player ${currentPlayer}</p>
+    <h2>Show this card to the other player</h2>
+
+    <img class="card" src="${card}" alt="Selected card">
+
+    <button onclick="useCard()">Use Card</button>
+    <button class="secondary" onclick="showCard()">Back</button>
+  `;
+}
+
+function useCard() {
+  hands[currentPlayer][cardIndex] = randomCard(currentPlayer);
+  endTurn();
+}
+
+function showTradeScreen() {
+  const count = tradeMarked.filter(Boolean).length;
+
+  let list = "";
+  for (let i = 0; i < 5; i++) {
+    list += `
+      <label>
+        <input type="checkbox" ${tradeMarked[i] ? "checked" : ""}
+          onchange="tradeMarked[${i}] = this.checked; showTradeScreen();">
+        Card ${i + 1}
+      </label>
+    `;
+  }
+
+  document.getElementById("app").innerHTML = `
+    <h2>Trade Cards?</h2>
+    <p>Select any cards you want to trade. Trading ends your turn.</p>
+
+    ${list}
+
+    <p class="small">${count} card(s) selected.</p>
+
+    <button class="danger" onclick="tradeCards()">Trade Selected Cards</button>
+    <button class="secondary" onclick="showCard()">Back to Cards</button>
+  `;
+}
+
+function tradeCards() {
+  for (let i = 0; i < 5; i++) {
+    if (tradeMarked[i]) {
+      hands[currentPlayer][i] = randomCard(currentPlayer);
+    }
+  }
+
+  endTurn();
+}
+
+function endTurn() {
+  currentPlayer = currentPlayer === 1 ? 2 : 1;
+  showStartScreen();
+}
+
+showStartScreen();
+</script>
+
+</body>
+</html>
