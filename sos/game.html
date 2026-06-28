@@ -137,14 +137,31 @@ function randomCard(player) {
   return cards[Math.floor(Math.random() * cards.length)];
 }
 
+function countCardInHand(hand, cardName, ignoreIndex = null) {
+  return hand.filter((card, index) => {
+    return card === cardName && index !== ignoreIndex;
+  }).length;
+}
+
+function randomCardForHand(player, hand, replacingIndex = null) {
+  let newCard;
+
+  do {
+    newCard = randomCard(player);
+  } while (countCardInHand(hand, newCard, replacingIndex) >= 2);
+
+  return newCard;
+}
+
 function createHand(player) {
-  return [
-    randomCard(player),
-    randomCard(player),
-    randomCard(player),
-    randomCard(player),
-    randomCard(player)
-  ];
+  const hand = [];
+
+  while (hand.length < 5) {
+    const newCard = randomCardForHand(player, hand);
+    hand.push(newCard);
+  }
+
+  return hand;
 }
 
 hands[1] = createHand(1);
@@ -218,7 +235,9 @@ function confirmPlay() {
 }
 
 function useCard() {
-  hands[currentPlayer][cardIndex] = randomCard(currentPlayer);
+  hands[currentPlayer][cardIndex] =
+    randomCardForHand(currentPlayer, hands[currentPlayer], cardIndex);
+
   endTurn();
 }
 
@@ -252,7 +271,8 @@ function showTradeScreen() {
 function tradeCards() {
   for (let i = 0; i < 5; i++) {
     if (tradeMarked[i]) {
-      hands[currentPlayer][i] = randomCard(currentPlayer);
+      hands[currentPlayer][i] =
+        randomCardForHand(currentPlayer, hands[currentPlayer], i);
     }
   }
 
